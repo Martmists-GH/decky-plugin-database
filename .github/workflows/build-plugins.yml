@@ -26,7 +26,7 @@ jobs:
       image: ghcr.io/steamdeckhomebrew/holo-base:latest
     steps:
       - name: Update dependencies
-        run: sudo pacman -S --noconfirm git python python-pip python-setuptools jdk11-openjdk
+        run: sudo pacman -S --noconfirm git python python-pip python-setuptools jdk11-openjdk docker
 
       - name: Checkout
         uses: actions/checkout@v3
