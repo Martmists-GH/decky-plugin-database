@@ -48,7 +48,7 @@ jobs:
       - name: Build and upload plugins
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build --stacktrace
+          arguments: build
         env:
           PLUGIN_STORE_KEY: ${{ secrets.PLUGIN_STORE_KEY }}
           PLUGIN_STORE_UPLOAD: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.upload)) }}
