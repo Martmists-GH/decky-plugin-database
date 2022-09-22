@@ -33,6 +33,8 @@ abstract class BuildPipelineProvider(protected val project: Project, protected v
     fun create() {
         val metadata = metadata()
 
+        // TODO in the future: Only build if version mismatch between local and plugin store
+
         project.tasks {
             val build by register(taskName("build")) {
                 group = "deckbrew"
