@@ -85,7 +85,7 @@ class RollupPipelineProvider(project: Project, pluginFolder: File, buildDir: Fil
 
             // Add backend to copy output
             copy.apply {
-                into("bin") {
+                into("${metadata.name}/bin") {
                     from(backend)
                 }
             }

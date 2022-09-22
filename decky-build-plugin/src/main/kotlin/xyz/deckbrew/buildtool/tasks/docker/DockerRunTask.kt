@@ -66,6 +66,8 @@ abstract class DockerRunTask : DefaultTask() {
 
         _cmdline.add(image.get())
 
+        println("Running docker command: ${_cmdline.joinToString(" ")}")
+
         project.exec {
             workingDir = directory.asFile
             commandLine(_cmdline)
