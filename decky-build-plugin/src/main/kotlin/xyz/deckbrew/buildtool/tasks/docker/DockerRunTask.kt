@@ -57,6 +57,11 @@ abstract class DockerRunTask : DefaultTask() {
             File(src).mkdirs()
             _cmdline.add("-v")
             _cmdline.add("$src:$dst")
+
+            println("Files in ${src}:")
+            File(src).listFiles().forEach {
+                println(it.name)
+            }
         }
 
         // Add arguments
