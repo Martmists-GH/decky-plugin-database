@@ -48,7 +48,7 @@ abstract class BuildPipelineProvider(protected val project: Project, protected v
                 val upload by register<PluginStoreUploadTask>(taskName("upload")) {
                     group = "deckbrew"
 
-                    this.metadata.set(_metadata)
+                    metadata.set(_metadata)
                     pluginZip.set(endTask.outputs.files.singleFile)
                     dependsOn(endTask)
                 }
