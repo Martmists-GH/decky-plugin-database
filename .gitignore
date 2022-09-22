@@ -1,1 +1,6 @@
 .env
+
+### Build plugin files
+.idea/
+.gradle/
+build/
