@@ -25,6 +25,9 @@ jobs:
     container:
       image: ghcr.io/steamdeckhomebrew/holo-base:latest
     steps:
+      - name: Update dependencies
+        run: sudo pacman -S --noconfirm git python python-pip python-setuptools jdk11-openjdk
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -34,7 +37,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@fb1fe28aa9ff24afc553b37545437005a4cf2115
+        uses: tj-actions/changed-files@v29.0.9
         with:
           sha: ${{ github.sha }}
           separator: ","
