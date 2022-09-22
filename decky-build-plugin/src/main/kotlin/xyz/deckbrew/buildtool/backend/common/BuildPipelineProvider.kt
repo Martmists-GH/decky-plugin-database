@@ -31,7 +31,7 @@ abstract class BuildPipelineProvider(protected val project: Project, protected v
      * Create all required tasks for this plugin
      */
     fun create() {
-        val metadata = metadata()
+        val _metadata = metadata()
 
         // TODO in the future: Only build if version mismatch between local and plugin store
 
@@ -44,11 +44,11 @@ abstract class BuildPipelineProvider(protected val project: Project, protected v
 
             val endTask = createTasks()
 
-            if (System.getenv("PLUGIN_STORE_UPLOAD") == "true" && metadata.tags.none { it == "dnu" }) {
+            if (System.getenv("PLUGIN_STORE_UPLOAD") == "true" && _metadata.tags.none { it == "dnu" }) {
                 val upload by register<PluginStoreUploadTask>(taskName("upload")) {
                     group = "deckbrew"
 
-                    this.metadata.set(metadata)
+                    this.metadata.set(_metadata)
                     pluginZip.set(endTask.outputs.files.singleFile)
                     dependsOn(endTask)
                 }
