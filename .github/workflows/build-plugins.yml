@@ -8,6 +8,7 @@ on:
     paths:
       - "plugins/**"
       - ".github/workflows/build-plugins.yml"
+      - "decky-build-plugin/**"
   pull_request:
     branches: ['*']
   workflow_dispatch:
